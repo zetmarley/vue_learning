@@ -6,16 +6,29 @@
 </head>
 <body>
 <div id="app">
-    <p>Ширина: <input type="number" v-model="width" placeholder="Введите ширину" /></p>
-    <p>Высота: <input type="number" v-model="height" placeholder="Введите высоту" /></p>
-    <p>Площаль прямоугольника: {{ width * height }}</p>
+    <input type="text" v-model="firstname" />
+    <input type="text" v-model="lastname" />
+    <input type="text" v-model="fullname" />
+    <p>Имя: {{fullname}}</p>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script>
-const vueApp = Vue.createApp({
+Vue.createApp({
   data() {
-    return {width: 20, height: 10}
-  }
+    return {firstname:'Tom', lastname:'Smith'}
+  },
+  computed:{
+        fullname: {
+            get: function () {
+                return this.firstname + ' ' + this.lastname;
+            },
+            set: function (newValue) {
+                const names = newValue.split(' ')
+                this.firstname = names[0]
+                this.lastname = names[names.length - 1]
+            }
+        }
+    }
 }).mount('#app');
 </script>
 </body>
