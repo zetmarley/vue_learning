@@ -3,35 +3,56 @@
 <head>
 <title>Изучаем Vue 3</title>
 <meta charset="utf-8" />
+<style>
+.region{
+    background-color: #999;
+    margin: 10px;
+    width: 75px;
+    height: 75px;
+}
+.bounded{
+    border: 2px solid black;
+}
+.yellow{ 
+    background-color: yellow; 
+}
+.red{ 
+    background-color: red; 
+}
+.blue{ 
+    background-color: blue; 
+}
+.green{ 
+    background-color: green; 
+}
+.big{
+    width: 100px;
+    height: 100px;
+}
+.small{
+    width: 50px;
+    height: 50px;
+}
+</style>
 </head>
 <body>
 <div id="app">
-    <p>Введите возраст: <input  v-model="age"></p>
-    <p>{{ result}}</p>
+    <div class="region" v-bind:class="[color, {bounded: isBounded}, size]" v-on:click="isBounded=!isBounded"></div>
+    <br>
+    <input type="text" v-model="color" />
+    <br>
+    <input type="text" v-model="size" />
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script>
 Vue.createApp({
   data() {
-    return { age: 0, result: '' }
-  },
-  watch: {
-    age: function (newAge) {
-                if(newAge > 0 && newAge < 110){
-                    this.check(newAge);
-                }
-            }
-        },
-        methods:{
-            check: function(value){
-                this.result = 'Пожалуйста, подождите. Идет проверка...';
-                const vm = this;
-                setTimeout(function(){
-                    if(value > 18) vm.result = 'Доступ открыт';
-                    else vm.result = 'Для возраста ' + value + ' доступ закрыт';
-                }, 2000);
-            }
+    return {
+            color: "red",
+            size: "small",
+            isBounded: false
         }
+  }
 }).mount('#app');
 </script>
 </body>
