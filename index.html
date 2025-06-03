@@ -6,28 +6,16 @@
 </head>
 <body>
 <div id="app">
-    <p>Name: {{ name }}</p>
-    <p>Age: {{ age }}</p>
+    <div v-html="message"></div>
+    <div>{{message}}</div>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script>
-const app = Vue.createApp({
+const vueApp = Vue.createApp({
   data() {
-    return { name: "Tom", age: 36 }
-  },
-  methods:{
-    incrementAge(){
-        this.age++;
-    },
-    incrementAgeThreeTimes(){
-        this.incrementAge();
-        this.incrementAge();
-        this.incrementAge();
-    }
+    return { message:'<h2>Hello</h2>'}
   }
 }).mount('#app');
- 
-app.incrementAgeTreeTimes();
 </script>
 </body>
 </html>
