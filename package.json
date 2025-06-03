@@ -1,0 +1,22 @@
+{
+  "name": "vue_learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zetmarley/vue_learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zetmarley/vue_learning/issues"
+  },
+  "homepage": "https://github.com/zetmarley/vue_learning#readme",
+  "dependencies": {
+    "vue": "^3.5.16"
+  }
+}
