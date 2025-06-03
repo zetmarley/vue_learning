@@ -6,23 +6,28 @@
 </head>
 <body>
 <div id="app">
-    <input type="text" v-on:input="setMessage" />
-    <p>{{message}}</p>
+    <p>Name: {{ name }}</p>
+    <p>Age: {{ age }}</p>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script>
-Vue.createApp({
+const app = Vue.createApp({
   data() {
-    return {
-      message: 'Hello Vue 3!'
-    }
+    return { name: "Tom", age: 36 }
   },
-  methods: {
-    setMessage(event) {
-      this.message = event.target.value;
+  methods:{
+    incrementAge(){
+        this.age++;
+    },
+    incrementAgeThreeTimes(){
+        this.incrementAge();
+        this.incrementAge();
+        this.incrementAge();
     }
   }
 }).mount('#app');
+ 
+app.incrementAgeTreeTimes();
 </script>
 </body>
 </html>
